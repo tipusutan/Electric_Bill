@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity bill program</title>
+</head>
+<body>
+    <form method="post" >
+        Please Enter Meter Number : <input type="text" name="number" id="number" />
+        <input type="button" name="submit" id="submit" onclick="getaction ()" value="go" />
+        <p id="demo"></p>
+
+        <div id="options" style="display: none;" >
+            <input type='radio' name='radio' onclick='myfunction(this.value)' value="1" />Agriculture
+            <input type='radio' name='radio' onclick='myfunction(this.value)' value="2" />Residential
+            <input type='radio' name='radio' onclick='myfunction(this.value)' value="3" />Commercial
+        </div>
+
+        <div id="display1" style="display: none;" >
+            <label>Please Enter Number of Units Consumed</label>
+            <input type="text" name="amount1" id="amount1" value="" />
+            <input type="submit" name="submit1" value="submit" onclick="getamount1 ()" /> 
+        </div>
+
+        <div id="display2" style="display: none;" >
+            <label>Please Enter Number of Units Consumed</label>
+            <input type="text" name="amount2" id="amount2" value="" />
+            <input type="submit" name="submit2" value="submit" onclick="getamount2 ()" />
+        </div>
+
+        <div id="display3" style="display: none;" >
+            <label>Please Enter Number of Units Consumed</label>
+            <input type="text" name="amount3" id="amount3" value="" />
+            <input type="submit" name="submit3" value="submit" onclick="getamount3 ()" />
+        </div>
+        </form>
+
+        <script>
+            function getaction ()
+            //Intialise textbox value in varible m
+            {
+              var m=document.getElementById ('number').value;
+              var a=1234;
+              //To check meter number entered is correct or not
+              if (m==a)
+              {
+                 document.getElementById ('demo').innerHTML="please choose category";
+                 document.getElementById ('options').style.display='block';//If meeter number is correct options will appear.
+              }
+              else
+              {
+                document.getElementById ('demo').innerHTML="Invalid meter number";
+              }
+
+            }
+
+            function myfunction (val)
+            {
+            //funciton to display required fields
+            if (val==1)
+            {
+                document.getElementById ('display1').style.display='block';
+                document.getElementById ('display2').style.display='none';
+                document.getElementById ('display3').style.display='none';
+            }
+            if (val==2)
+            
+            {
+                document.getElementById ('display1').style.display='none';
+                document.getElementById ('display2').style.display='block';
+                document.getElementById ('display3').style.display='none';
+           }
+           if (val==3)
+           {
+            document.getElementById ('display1').style.display='none';
+            document.getElementById ('display').style.display='none';
+            document.getElementById ('display3').style.display='block';
+           }
+
+            }
+
+            function getamount1 ()
+            {
+                //Intialise the textbox value in varible
+                var x = document.getElementById ('amount1').value;
+                var y = 40;
+                if (x>0 && x<50)
+                {
+                    bill = (x*0.30) +y;
+                    document.getElementById ('display1').innerHTML = "bill amount" +bill;
+                }
+                else
+                if (x>50 && x<150)
+                {
+                    bill = (x*0.60) +y;
+                    document.getElementById ('display1').innerHTML = "bill amount" +bill;
+                }
+                else
+                if (x>150 && x<300)
+                {
+                    bill = (x*1) +y;
+                    document.getElementById ('display1').innerHTML = "bill amount" +bill; 
+                }
+                else
+                if (x>300 && x<500)
+                {
+                    bill = (x*1.40) +y;
+                    document.getElementById ('display1').innerHTML = "bill amount" +bill;
+                }
+                else
+                if (x>500 && x<1000)
+                {
+                    bill = (x*2.40) +y;
+                }
+                else
+	            {
+		           document.getElementById ('display3').innerHTML = "Invalid units";
+            	}
+            }
+
+            function getamount2 ()
+            {
+                var x = document.getElementById ('amount2').value;
+                var y=45;
+                bill =0.0; 
+                if (x>0 && x<50)
+                {
+                    bill = (x*1.10) +y;
+                    document.getElementById ('display2').innerHTML = "bill amount" +bill;
+                }
+                else
+                if (x>50 && x<150)
+                {
+                    bill = (x*2.5) +y;
+                    document.getElementById ('display2').innerHTML = "bill amount" +bill;
+                }
+                else
+                if (x>150 && x<300)
+                {
+                    bill = (x*3) +y;
+                    document.getElementById ('display2').innerHTML = "bill amount" +bill;
+                }
+                else
+                if (x>300 && x<500)
+                {
+                    bill = (x*3.50) +y;
+                    document.getElementById ('dispaly2').innerHTML = "bill amount" +bill;
+                }
+                else
+                if (x>500 && x<1000)
+                {
+                    bill = (x*6.5) +y;
+                    document.getElementById ('display2').innerHTML = "bill amount" +bill;
+                }
+                else
+	            {
+	        	document.getElementById ('display3').innerHTML = "Invalid units";
+            	}
+            }
+
+            function getamount3 ()
+            {
+             var x =document.getElementById ('amount3').value;
+             var y =85;
+             bill = 0.0;
+             if (x>0 && x<50)
+             {
+                bill = (x*3.5) +y;
+                document.getElementById ('display3').innerHTML = "bill amount" +bill;
+             }
+             else
+             if (x>50 && x<150)
+             {
+                bill = (x*4.15) +y;
+                document.getElementById ('display3').innerHTML = "bill amount" +bill;  
+             }
+             else
+             if (x>150 && x<300)
+             {
+                bill = (x*5) +y;
+                document.getElementById ('display3').innerHTML = "bill amount" +bill;
+             }
+             else
+             if (x>300 && x<500)
+             {
+                bill= (x*6.58) +y;
+                document.getElementById ('display3').innerHTML = "bill amount" +bill;
+             }
+             else
+             if (x>500 && x<1000)
+             {
+                bill = (x*9) +y;
+                document.getElementById ('display3').innerHTML = "bill amount" +bill;
+             }
+             else
+	         {
+		       document.getElementById ('display3').innerHTML = "Invalid units";
+	         }
+
+            }
+
+
+
+        </script>
+
+
+            
+
+
+    
+    
+    
+</body>
+</html>

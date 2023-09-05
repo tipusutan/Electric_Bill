@@ -1,2 +1,2 @@
 # Electric_Bill
-Electric Bill using javascrript
+Electric Bill using javascript
